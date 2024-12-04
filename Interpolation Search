@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int interpolationSearch(int arr[], int lo, int hi, int x) {
+  int pos;
+
+  // Condição de parada: o elemento não foi encontrado
+  if (lo < hi && x >= arr[lo] && x <= arr[hi]) {
+    pos = lo + (((double)(hi - lo) / (arr[hi] - arr[lo])) * (x - arr[lo]));
+
+    // Se o elemento for encontrado na posição estimada
+    if (arr[pos] == x)
+      return pos;
+
+    // Se x é menor, recursivamente busca na metade esquerda
+    if (arr[pos] > x)
+      return interpolationSearch(arr, lo, pos - 1, x);
+
+    // Se x é maior, recursivamente busca na metade direita
+    return interpolationSearch(arr, pos + 1, hi, x);
+  }
+
+  return -1;
+}
+
+int main() {
+  int arr1[] = {10, 20, 30, 40, 50};
+  int arr2[] = {10, 12, 14, 16, 18};
+  int n1 = sizeof(arr1) / sizeof(arr1[0]);
+  int n2 = sizeof(arr2) / sizeof(arr2[0]);
+  int x = 30;
+
+  printf("Index of %d in arr1 is %d\n", x, interpolationSearch(arr1, 0, n1 - 1, x));
+  printf("Index of %d in arr2 is %d\n", x, interpolationSearch(arr2, 0, n2 - 1, x));
+
+  return 0;
+}
