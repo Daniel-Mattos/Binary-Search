@@ -11,3 +11,9 @@ numero desejado 10
 
 #Interpolation-Search 
 Pode ser melhor quando for maior a quantidade dos dados, por ser mais rapido, ele se destaca quando os dados estao uniformementes distribuidos
+
+#Selection-Sort
+
+Lista pequena:Pode ser uma boa opção devido à sua simplicidade de implementação. 
+Lista media:O número de comparações cresce quadraticamente com o tamanho da entrada, o que pode levar a um tempo de execução considerável.
+Lista grande:O tempo de execução cresce rapidamente, tornando o algoritmo impraticável para grandes conjuntos de dados.
