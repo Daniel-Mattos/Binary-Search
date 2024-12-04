@@ -10,4 +10,4 @@ numero desejado 10
 10 > 6 ou seja ja elimina a metade do começo da lista pois sabe q o 10 é maior que o 6 e faz isso até que encontre o numero
 
 #Interpolation-Search 
-
+Pode ser melhor quando for maior a quantidade dos dados, por ser mais rapido, ele se destaca quando os dados estao uniformementes distribuidos
