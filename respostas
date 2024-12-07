@@ -29,4 +29,5 @@
 #Merge-Sort
 •Ele divide recursivamente a lista a ser ordenada em sublistas menores, ordena essas sublistas e, em seguida, combina as sublistas ordenadas em uma única lista ordenada
 
-
+#Bucket-Sort
+•são preencidos pelo primeiro numero que eles tem no caso de numeros de (0 a 1), eles analisa se o nunero começa com o 0,7 e separa no balde especifico para numeros que são entre 0,6 a 0,8 e fazendo isso recursivamente chegara um momento que os numeros estaram ordenados
