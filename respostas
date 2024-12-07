@@ -26,6 +26,11 @@
 #Shell-Sort
 •com intervalos grandes, elementos distantes são comparados e movidos para posições mais próximas de seus locais finais ajudando a reduzir o número de elementos desordenados
 
+#Radix-Sort
+•geralmente usando a base 10 já é o padrão pois usam muito com numeros decimais, fazendo com que os numeros fossem divididos por 10 ate ter o resto e pegar o resultado do resto
+•já a base 2 é mais comum para ter resultado com a forma de binario [0,1]
+
+
 #Merge-Sort
 •Ele divide recursivamente a lista a ser ordenada em sublistas menores, ordena essas sublistas e, em seguida, combina as sublistas ordenadas em uma única lista ordenada
 
