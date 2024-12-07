@@ -22,3 +22,11 @@
 #Exponential-Search
 •Lista pequena: tem uma dificuldade pois é necessario varias interações
 •Lista grande: se a buscar for no inicio ou media ela tera vantegens de velocidade pois consegue se adpatar facilmente com a lista
+
+#Shell-Sort
+•com intervalos grandes, elementos distantes são comparados e movidos para posições mais próximas de seus locais finais ajudando a reduzir o número de elementos desordenados
+
+#Merge-Sort
+•Ele divide recursivamente a lista a ser ordenada em sublistas menores, ordena essas sublistas e, em seguida, combina as sublistas ordenadas em uma única lista ordenada
+
+
