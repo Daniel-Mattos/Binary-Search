@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int exponentialSearch(int arr[], int n, int x)
+{
+    // Se o primeiro elemento for o mesmo que x
+    if (arr[0] == x)
+        return 0;
+
+    // Encontrando o intervalo onde x pode estar
+    int i = 1;
+    while (i < n && arr[i] <= x)
+        i = i*2;
+
+    // Chamando a busca binária na metade direita do intervalo
+    return binarySearch(arr, i/2, min(i, n-1), x);
+}
+
+// Função de busca binária padrão
+int binarySearch(int arr[], int l, int r, int x)
+{
+    if (r >= l)
+    {
+        int mid = l + (r - l)/2;
+
+        // Se o elemento estiver no meio
+        if (arr[mid] == x)
+            return mid;
+
+        // Se o elemento for menor que o meio, busca na metade esquerda
+        if (arr[mid] > x)
+            return binarySearch(arr, l, mid-1, x);
+
+        // Se o elemento for maior que o meio, busca na metade direita
+        return binarySearch(arr, mid+1, r, x);
+    }
+
+    // Elemento não encontrado
+    return -1;
+}
+
+int main(void)
+{
+    int arr[] = {2, 3, 4, 10, 40};
+    int x = 10;
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    int result = exponentialSearch(arr, n, x);
+
+    if (result == -1)
+        printf("Elemento não encontrado\n");
+    else
+        printf("Elemento encontrado no índice %d\n", result);
+    return 0;
+}
