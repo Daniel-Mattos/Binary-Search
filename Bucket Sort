@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUCKET_COUNT 10
+
+void insertionSort(float arr[], int n) {
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        /* Move os elementos de arr[0..i-1], que são
+           maiores que a chave, para uma posição à frente
+           de suas posições atuais */
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+// Função para fazer o Bucket Sort
+void bucketSort(float arr[], int n) {
+    // Criação dos baldes
+    float **buckets = (float**)malloc(BUCKET_COUNT * sizeof(float*));
+    for (int i = 0; i < BUCKET_COUNT; i++) {
+        buckets[i] = (float*)malloc(n * sizeof(float));
+    }
+
+    // Encontrando o índice do balde para cada elemento
+    for (int i = 0; i < n; i++) {
+        int bi = n * arr[i]; // Índice do balde
+        buckets[bi][++buckets[bi][0]] = arr[i];
+    }
+
+    // Ordenando cada balde usando Insertion Sort
+    for (int i = 0; i < BUCKET_COUNT; i++) {
+        insertionSort(buckets[i], buckets[i][0]);
+    }
+
+    // Concatenando os baldes
+    int index = 0;
+    for (int i = 0; i < BUCKET_COUNT; i++) {
+        for (int j = 1; j <= buckets[i][0]; j++) {
+            arr[index++] = buckets[i][j];
+        }
+    }
+
+    // Liberando a memória dos baldes
+    for (int i = 0; i < BUCKET_COUNT; i++) {
+        free(buckets[i]);
+    }
+    free(buckets);
+}
+
+int main() {
+    float arr[] = {0.897, 0.565, 0.656, 0.1234, 0.687};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bucketSort(arr, n);
+
+    printf("Array ordenado: \n");
+    for (int i = 0; i < n; i++)
+        printf("%f ", arr[i]);
+    return 0;
+}
