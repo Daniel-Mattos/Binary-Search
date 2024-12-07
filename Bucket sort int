@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUCKET_COUNT 10
+
+void insertionSort(int arr[], int n) {
+    // ... (mesma implementação do Insertion Sort)
+}
+
+void bucketSort(int arr[], int n) {
+    // Encontrar o maior valor
+    int max_val = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max_val)
+            max_val = arr[i];
+    }
+
+    // Criação dos baldes
+    float **buckets = (float**)malloc(BUCKET_COUNT * sizeof(float*));
+    for (int i = 0; i < BUCKET_COUNT; i++) {
+        buckets[i] = (float*)malloc(n * sizeof(float));
+    }
+
+    // Distribuição nos baldes
+    for (int i = 0; i < n; i++) {
+        int bi = (int)(arr[i] * (BUCKET_COUNT - 1) / max_val);
+        buckets[bi][++buckets[bi][0]] = arr[i];
+    }
+
+    // Ordenação dos baldes
+    // ... (mesma implementação)
+
+    // Concatenando os baldes
+    // ... (mesma implementação)
+
+    // Liberando a memória dos baldes
+    // ... (mesma implementação)
+}
+
+int main() {
+    int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bucketSort(arr, n);
+
+    // ... (impressão do array ordenado)
+}
