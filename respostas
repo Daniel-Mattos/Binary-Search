@@ -18,3 +18,7 @@
 #Jump-Search 
 •Lista pequena: a diferença é quase igual de tempo, tendo vantagens quando o custo de acesso aleatorio da memoria é alta
 •Lista grande: binary search é mais rapido pois tem um
+
+#Exponential-Search
+•Lista pequena: tem uma dificuldade pois é necessario varias interações
+•Lista grande: se a buscar for no inicio ou media ela tera vantegens de velocidade pois consegue se adpatar facilmente com a lista
