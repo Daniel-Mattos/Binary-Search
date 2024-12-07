@@ -1,19 +1,20 @@
+----/Explicação/----
+
 # Binary-Search
-Explicação
-se a lista tiver ordenada funciona melhor pois ela divide os elementos pela metade e ver o valor se o valor desejado for menor ele ja elimina a metade da dos elementos da lista
-
-exemplos 
+•Se a lista tiver ordenada funciona melhor pois ela divide os elementos pela metade e ver o valor se o valor desejado for menor ele ja elimina a metade da dos elementos da lista
+•exemplos 
 [4,1,6,2,10]
-
-numero desejado 10
-
-10 > 6 ou seja ja elimina a metade do começo da lista pois sabe q o 10 é maior que o 6 e faz isso até que encontre o numero
+•numero desejado 10
+•10 > 6 ou seja ja elimina a metade do começo da lista pois sabe q o 10 é maior que o 6 e faz isso até que encontre o numero
 
 #Interpolation-Search 
-Pode ser melhor quando for maior a quantidade dos dados, por ser mais rapido, ele se destaca quando os dados estao uniformementes distribuidos
+•Pode ser melhor quando for maior a quantidade dos dados, por ser mais rapido, ele se destaca quando os dados estao uniformementes distribuidos
 
 #Selection-Sort
+•Lista pequena:Pode ser uma boa opção devido à sua simplicidade de implementação. 
+•Lista media:O número de comparações cresce quadraticamente com o tamanho da entrada, o que pode levar a um tempo de execução considerável.
+•Lista grande:O tempo de execução cresce rapidamente, tornando o algoritmo impraticável para grandes conjuntos de dados.
 
-Lista pequena:Pode ser uma boa opção devido à sua simplicidade de implementação. 
-Lista media:O número de comparações cresce quadraticamente com o tamanho da entrada, o que pode levar a um tempo de execução considerável.
-Lista grande:O tempo de execução cresce rapidamente, tornando o algoritmo impraticável para grandes conjuntos de dados.
+#Jump-Search 
+•Lista pequena: a diferença é quase igual de tempo, tendo vantagens quando o custo de acesso aleatorio da memoria é alta
+•Lista grande: binary search é mais rapido pois tem um
