@@ -42,4 +42,6 @@
 •lista desordenada: melhor caso pois a complexidade do Quick Sort é O(n log n), o que o torna um algoritmo eficiente para listas grandes e aleatórias.
 
 #Ternary-Search
-•
+•a busca binária divide a lista em duas partes iguais a cada iteração, enquanto a busca ternária divide a lista em três partes iguais, sendo geralmente a busca binária mais eficiente e simples de implementar.
+•A busca binária é geralmente preferível à busca ternária devido à sua simplicidade e eficiência em diversas situações, enquanto a busca ternária pode ser mais adequada em casos específicos, como a busca em funções unimodais, mas com um custo adicional de complexidade.
+
