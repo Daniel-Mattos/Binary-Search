@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Funções para os algoritmos (implemente aqui)
+void bubbleSort(int arr[], int n);
+void insertionSort(int arr[], int n);
+// ... outras funções
+
+// Funções para as buscas (implemente aqui)
+int linearSearch(int arr[], int n, int x);
+int binarySearch(int arr[], int n, int x);
+
+// Função para gerar uma lista aleatória
+void generateRandomArray(int arr[], int n) {
+    for (int i = 0; i < n; ++i) {
+        arr[i] = rand() % 100;
+    }
+}
+
+// Função para medir o tempo de execução
+double getTime(clock_t start, clock_t end) {
+    return (double)(end - start) / CLOCKS_PER_SEC;
+}
+
+int main() {
+    int n, choice;
+
+    printf("Digite o tamanho da lista: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    generateRandomArray(arr, n);
+
+    // Menu
+    printf("Escolha um algoritmo:\n");
+    // ... opções de algoritmos
+
+    scanf("%d", &choice);
+
+    // Chamar a função do algoritmo escolhido e medir o tempo
+    clock_t start = clock();
+    // ... chamar a função correspondente
+    clock_t end = clock();
+    double time_taken = getTime(start, end);
+
+    printf("Tempo de execução: %f segundos\n", time_taken);
+
+    // Imprimir a lista ordenada ou o resultado da busca
+
+    // Comparação de resultados (implemente aqui)
+
+    return 0;
+}
