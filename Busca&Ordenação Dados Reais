@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_NOTA 100
+
+void bucketSort(float arr[], int n) {
+    int i, j;
+    float bucket[MAX_NOTA + 1][n];
+    int count[MAX_NOTA + 1] = {0};
+
+    // Distribui os elementos nos buckets
+    for (i = 0; i < n; i++) {
+        int bi = arr[i] * n / MAX_NOTA;
+        bucket[bi][count[bi]] = arr[i];
+        count[bi]++;
+    }
+
+    // Ordena cada bucket (pode-se usar qualquer outro algoritmo de ordenação)
+    for (i = 0; i <= MAX_NOTA; i++) {
+        // Por simplicidade, usaremos insertion sort para buckets pequenos
+        for (j = 1; j < count[i]; j++) {
+            float temp = bucket[i][j];
+            int k = j - 1;
+            while (k >= 0 && bucket[i][k] > temp) {
+                bucket[i][k + 1] = bucket[i][k];
+                k--;
+            }
+            bucket[i][k + 1] = temp;
+        }
+    }
+
+    // Combina os buckets no array original
+    i = 0;
+    for (int b = 0; b <= MAX_NOTA; b++)
+        for (j = 0; j < count[b]; j++)
+            arr[i++] = bucket[b][j];
+}
+
+int interpolationSearch(float arr[], int n, float x) {
+    int lo = 0, hi = (n - 1);
+    while (lo <= hi && x >= arr[lo] && x <= arr[hi]) {
+        int pos = lo + ((x - arr[lo]) * (hi - lo)) / (arr[hi] - arr[lo]);
+
+        if (arr[pos] == x)
+            return pos;
+        if (arr[pos] < x)
+            lo = pos + 1;
+        else
+            hi = pos - 1;
+    }
+    return -1;
+}
+
+int main() {
+    float notas[] = {85.3, 92.1, 78.5, ...}; // Lista de notas
+    int n = sizeof(notas) / sizeof(notas[0]);
+
+    bucketSort(notas, n);
+
+    float notaProcurada;
+    printf("Digite a nota a ser procurada: ");
+    scanf("%f", &notaProcurada);
+
+    int indice = interpolationSearch(notas, n, notaProcurada);
+
+    if (indice != -1)
+        printf("A nota %.2f foi encontrada na posição %d.\n", notaProcurada, indice);
+    else
+        printf("A nota %.2f não foi encontrada.\n", notaProcurada);
+
+    return 0;
+}
