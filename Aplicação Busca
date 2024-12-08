@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+// Estrutura para representar um registro de livro
+typedef struct {
+    char isbn[13];
+    char titulo[100];
+    // ... outros campos
+} Livro;
+
+// Função de comparação para ISBNs (assumindo que ISBNs são strings)
+int compararISBN(const void *a, const void *b) {
+    return strcmp(((Livro*)a)->isbn, ((Livro*)b)->isbn);
+}
+
+// Busca binária para encontrar um livro por ISBN
+int buscaBinaria(Livro livros[], int n, char isbnProcurado[]) {
+    int esquerda = 0, direita = n - 1;
+    while (esquerda <= direita) {
+        int meio = esquerda + (direita - esquerda) / 2;
+
+        int comparacao = strcmp(livros[meio].isbn, isbnProcurado);
+        if (comparacao == 0)
+            return meio; // Livro encontrado
+        else if (comparacao < 0)
+            esquerda = meio + 1;
+        else
+            direita = meio - 1;
+    }
+    return -1; // Livro não encontrado
+}
+
+int main() {
+    // ... (inicializar a lista de livros)
+
+    char isbnProcurado[13];
+    printf("Digite o ISBN do livro: ");
+    scanf("%s", isbnProcurado);
+
+    int indice = buscaBinaria(livros, n, isbnProcurado);
+
+    if (indice != -1) {
+        printf("Livro encontrado:\n");
+        printf("ISBN: %s\n", livros[indice].isbn);
+        printf("Título: %s\n", livros[indice].titulo);
+        // ... imprimir outros dados do livro
+    } else {
+        printf("Livro não encontrado.\n");
+    }
+
+    return 0;
+}
