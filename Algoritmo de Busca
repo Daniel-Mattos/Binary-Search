@@ -2,21 +2,47 @@
 #include <stdlib.h>
 #include <time.h>
 
-int binarySearch(int arr[], int l, int r, int x) {
-    // Implementação da busca binária
-    // ...
+// Funções para os algoritmos de busca (implemente aqui)
+int binarySearch(int arr[], int l, int r, int x);
+int interpolationSearch(int arr[], int lo, int hi, int x);
+int jumpSearch(int arr[], int x, int n);
+int exponentialSearch(int arr[], int n, int x);
+
+// Função para gerar um array aleatório ordenado
+void generateSortedArray(int arr[], int n) {
+    for (int i = 0; i < n; ++i) {
+        arr[i] = i;
+    }
+    // Para gerar um array aleatório desordenado, use rand()
+}
+
+// Função para medir o tempo de execução
+double getTime(clock_t start, clock_t end) {
+    return (double)(end - start) / CLOCKS_PER_SEC;
 }
 
 int main() {
-    // ...
-    clock_t start, end;
-    double time_used;
+    int sizes[] = {1000, 10000, 100000}; // Tamanhos das listas
+    int numSizes = sizeof(sizes) / sizeof(sizes[0]);
+    int numRepetitions = 10; // Número de repetições para cada tamanho
 
-    start = clock();
-    int result = binarySearch(arr, 0, n - 1, x);
-    end = clock();
+    for (int i = 0; i < numSizes; i++) {
+        int n = sizes[i];
+        int arr[n];
+        generateSortedArray(arr, n);
 
-    time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("Tempo de execução: %f segundos\n", time_used);
-    // ...
+        printf("Tamanho da lista: %d\n", n);
+        printf("Algoritmo\tTempo Médio (ms)\n");
+
+        for (int j = 0; j < numRepetitions; j++) {
+            // Gerar um valor aleatório para buscar
+            int x = rand() % n;
+
+            // Medir o tempo de execução de cada algoritmo
+            // ...
+        }
+        printf("\n");
+    }
+
+    return 0;
 }
