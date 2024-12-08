@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition(int arr[], int low, int high, int pivot_index) {
+    int pivot = arr[pivot_index];
+    swap(&arr[pivot_index], &arr[high]); // Move o pivô para o final
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high, char pivot_strategy) {
+    if (low < high) {
+        int pi;
+        if (pivot_strategy == 'f') {
+            pi = partition(arr, low, high, low); // Primeiro elemento
+        } else if (pivot_strategy == 'l') {
+            pi = partition(arr, low, high, high); // Último elemento
+        } else if (pivot_strategy == 'm') {
+            // Média dos três: primeiro, último e meio
+            int mid = (low + high) / 2;
+            if (arr[low] > arr[mid])
+                swap(&arr[low], &arr[mid]);
+            if (arr[low] > arr[high])
+                swap(&arr[low], &arr[high]);
+            if (arr[mid] > arr[high])
+                swap(&arr[mid], &arr[high]);
+            pi = partition(arr, low, high, mid);
+        } else {
+            printf("Estratégia de pivô inválida.\n");
+            return;
+        }
+        quickSort(arr, low, pi - 1, pivot_strategy);
+        quickSort(arr, pi + 1, high, pivot_strategy);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; ++i)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {10, 7, 8, 9, 1, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Array original: \n");
+    printArray(arr, n);
+
+    // Escolhendo diferentes estratégias de pivô
+    printf("Array ordenado (primeiro elemento como pivô): \n");
+    quickSort(arr, 0, n - 1, 'f');
+    printArray(arr, n);
+
+    // ... (repita para as outras estratégias)
+
+    return 0;
+}
