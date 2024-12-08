@@ -36,3 +36,10 @@
 
 #Bucket-Sort
 •são preencidos pelo primeiro numero que eles tem no caso de numeros de (0 a 1), eles analisa se o nunero começa com o 0,7 e separa no balde especifico para numeros que são entre 0,6 a 0,8 e fazendo isso recursivamente chegara um momento que os numeros estaram ordenados
+
+#Quick-Sort
+•lista ordenada: pior caso pois a partição resultante será altamente desbalanceada, com uma sublista muito pequena e outra muito grande.
+•lista desordenada: melhor caso pois a complexidade do Quick Sort é O(n log n), o que o torna um algoritmo eficiente para listas grandes e aleatórias.
+
+#Ternary-Search
+•
