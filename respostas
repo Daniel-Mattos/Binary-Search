@@ -48,3 +48,9 @@
 #Análise de Complexidade
 •A complexidade de tempo indica o número de operações que um algoritmo realiza em função do tamanho da entrada (n).
 
+#Ordenação Estável e Instável
+•Um algoritmo de ordenação é considerado estável quando preserva a ordem relativa de elementos com o mesmo valor. Em outras palavras, se dois elementos são iguais, sua posição na lista ordenada final será a mesma que na lista original.
+•lista de alunos com nome e nota:
+[("Alice", 85), ("Bob", 85), ("Charlie", 90)]
+•aplicando merge sort:
+[("Alice", 85), ("Bob", 85), ("Charlie", 90)]
